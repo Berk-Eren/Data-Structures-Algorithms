@@ -5,12 +5,15 @@ def multiply(a: int, b: int):
     n1 = str(a)
     n2 = str(b)
 
-    min_length = max(len(n1), len(n2))
+    len_n1 = len(n1)
+    len_n2 = len(n2)
+
+    min_length = max(len_n1, len_n2)
 
     if min_length <= 2:
         return a*b
     else:
-        max_length = max(len(n1), len(n2))
+        max_length = max(len_n1, len_n2)
 
         if max_length&1==1:
             max_length+=1
@@ -41,6 +44,8 @@ print(multiply(4343, 4565645654645)==4343*4565645654645)
 print(multiply(10,4323256)==10*4323256)
 print(multiply(10003,4323256)==10003*4323256)
 print(multiply(10001,4005)==10001*4005)
+print(multiply(100001,4005)==100001*4005)
+print(multiply(100001,40055)==100001*40055)
 
 
 

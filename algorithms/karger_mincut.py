@@ -9,12 +9,12 @@ def select_pair(data):
     return p1, p2
 
 def merge(data, p1, p2):
-    data[p1] = [vertex for vertex in data[p1] if vertex!=p2]
+    data[p1] = list(filter(lambda x: x!=p2, data[p1])) # remove second vertex from first vertex
 
     for vertex in data[p2]:
         if vertex!=p1:
             data[p1].append(vertex)
-            data[vertex] = [v for v in data[vertex] if v!=p2] # remove p2 from connections
+            data[vertex] = list(filter(lambda x: x!=p2, data[vertex])) # remove p2 from connections
             data[vertex].append(p1)
 
     del data[p2]
